@@ -1,0 +1,5 @@
+# ignore images
+*.jpg
+
+# ignore urls text files
+*urls.txt
