@@ -2,4 +2,4 @@
 *.jpg
 
 # ignore urls text files
-*urls.txt
+*-urls.txt

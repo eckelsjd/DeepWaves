@@ -1,0 +1,9 @@
+- Ubuntu 18.04
+- Python 3.6
+- NVIDIA Quadro GPU
+- virtualenv and virtualenvwrapper for Python 3.6
+- ubuntu-device-drivers autoinstall (for NVIDIA drivers)
+- CUDA toolkit
+- fast.ai (PyTorch, numpy, matplotlib, etc.)
+- download.py dependencies (requests, cv2, argparse, etc.)
+- OpenCV 4.? with dnn module

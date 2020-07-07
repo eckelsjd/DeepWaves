@@ -1,0 +1,14 @@
+1. How to run python script on Cloud GPU?
+2. Buy and hook up personal GPU
+3. Survey all available cnn_learner,Conv2D Fast AI stuff
+4. Clean up learning rate, optimization, accuracy, augmentation, transforms
+5. Better display of results (with class chart)
+6. Create personal data set (and how to properly format for script)
+7. Export, save, and load model from file
+8. Run inference 
+9. Semantic segmentation with regression (configure output layers)
+10. Replace U-Net with Refine-Net
+11. Add pixel refinement layers to the network
+
+ANSYS simulation
+Documentation for paper to include segmentation papers/research

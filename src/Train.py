@@ -6,6 +6,12 @@ import os
 
 data_dir = "../data"
 
+# remove hidden files in os.listdir()
+def remove_hidden(dir_list):
+    for element in dir_list:
+        if (element.startswith(".")):
+            dir_list.remove(element)
+
 def main():
     # TODO: Generate simulated data from Matlab code here
     # TODO: Make the next 3 comments automatic here
@@ -21,6 +27,7 @@ def main():
 
     # verify images
     classes = os.listdir(data_dir)
+    remove_hidden(classes)
     path = Path(data_dir)
     for c in classes:
         verify_images(path/c,delete=True)
