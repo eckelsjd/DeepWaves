@@ -2,9 +2,6 @@
 *.png
 *.jpg
 
-# ignore urls text files
-*-urls.txt
-
 # export file
 *.pkl
 *.pth
