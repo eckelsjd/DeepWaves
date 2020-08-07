@@ -1,0 +1,34 @@
+Training scheme (8/3/2020)
+
+Directory setup:
+
+images/
+labels/
+test/
+models/
+geometry/
+src/
+	unet_train.ipynb
+	augment.py
+	codes.txt
+	valid.txt
+
+Steps:
+
+1. Load '_real' wavefield images from all desired rounds into the images/ directory.
+	- valid.txt generated automatically by unet_train.ipynb
+	- codes.txt just has all desired classes listed in order line by line (i.e. 10,9,8,7,6,5,4,3,2,1)
+2. Load all corresponding '_real_mask' labels into labels/ directory.
+3. Edit augment.py to include desired augmentation actions (currently just uses Gaussian noise)
+4. Run 'python augment.py' from the top directory.
+	- this will perform each aug action on every image in the images/ directory.
+	- default: just Gaussian noise performed, which doubles the number of images in images/ directory.
+	- filenames indicate the type of augmentation performed. Labels only change if needed (such as a 180 rotation)
+4. Open unet_train.ipynb in a running Jupyter notebook kernel.
+5. Walk all the way through each cell until model has been trained through stage-2.
+	- stage-1 and stage-2 model .pth files saved in the models/ directory by fastai default
+	- choose learning rates from lr_find according to fastai custom
+6. Load all desired test images into the test/ directory.
+7. Find the test code at the end of the unet_train.ipynb notebook and edit the code to load the appropriate image.
+8. Run test cells in unet_train.ipynb to generate result images one by one on the desired test images.
+	- TODO: create a test batch automatically from ALL images in test/ directory

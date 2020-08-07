@@ -7,8 +7,8 @@ from pathlib import Path
 import numpy as np
 import os
 
-path_img = Path("images")
-path_lbl = Path("labels")
+path_img = Path("../images")
+path_lbl = Path("../labels")
 
 files = os.listdir(path_img) # get all images
 

@@ -2,6 +2,18 @@
 *.png
 *.jpg
 
+# data .txt files
+data/*.txt
+
+# geometry .step files
+geometry/*.step
+
+# Jupyter notebook checkpoints
+src/.ipynb_checkpoints
+
 # export file
 *.pkl
 *.pth
+
+# ansys files
+ansys/DeepWaves_files
