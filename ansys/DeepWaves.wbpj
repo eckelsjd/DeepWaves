@@ -2,10 +2,10 @@
 <Storage>
   <Project Version="9.0">
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">67683</timestamp-max>
+    <timestamp-max valType="Int64">72111</timestamp-max>
     <framework-build-version valType="String">19.1.103.0</framework-build-version>
     <external-version-string valType="String">Release 19.1</external-version-string>
-    <last-saved-utc valType="String">08/07/2020 13:25:27</last-saved-utc>
+    <last-saved-utc valType="String">08/11/2020 02:47:01</last-saved-utc>
     <managed-categories valType="String">[report, misc, progress]</managed-categories>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents4608.log</ArrayEntry>
@@ -27,6 +27,9 @@
       <ArrayEntry Index="16">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents19412.log</ArrayEntry>
       <ArrayEntry Index="17">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents1632.log</ArrayEntry>
       <ArrayEntry Index="18">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents7348.log</ArrayEntry>
+      <ArrayEntry Index="19">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents22576.log</ArrayEntry>
+      <ArrayEntry Index="20">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents19448.log</ArrayEntry>
+      <ArrayEntry Index="21">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents18532.log</ArrayEntry>
     </logHistory>
     <expression-scope-container valType="String">Parameters</expression-scope-container>
     <project-type valType="String">WB2</project-type>
@@ -62,7 +65,7 @@
 "f9203ff6-0294-4ac0-b1e6-a0d2aa57036e": "/Schematic/ComponentTemplate:SimulationSolutionCellTemplate_StructuralHarmonicANSYS",
 "3d20de7e-f8a2-4620-9695-d956688eb304": "/Schematic/ComponentTemplate:SimulationResultsCellTemplate_StructuralHarmonicANSYS",
 "a36ac451-d952-48ff-8d88-61b6ea71d446": "/FileContainer/FileReference:F8",
-"f868fe44-8fec-4b0f-a993-5d38c9d94324": "/FileContainer/FileReference:F9"
+"72f4a362-2bb1-4926-944f-490deeb30524": "/FileContainer/FileReference:F9"
 }</ReferenceList>
       </ProjectReferenceList>
       <DesignPointReferenceListCollection>
@@ -329,13 +332,13 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 67635, "Input": 1332, "Output": 1332}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 72064, "Input": 1332, "Output": 1332}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/FileContainer/FileReference:F9" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F9</object-name>
-        <member-data valType="String">{"DisplayText": "rd8_9_60.STEP", "FileType": $$9f670f46-ab25-4812-9501-077de93b6c5a, "DependentFiles": [], "ContainerAssociations": ["Geometry"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"C:\Users\eckelsjd\DeepWaves\geometry\rd8_9_60.STEP", "ReferenceCount": 1}</member-data>
+        <member-data valType="String">{"DisplayText": "test_small_perp_1_8.STEP", "FileType": $$9f670f46-ab25-4812-9501-077de93b6c5a, "DependentFiles": [], "ContainerAssociations": ["Geometry"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"C:\Users\eckelsjd\DeepWaves\geometry\test_small_perp_1_8.STEP", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F2" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -379,7 +382,7 @@
       <maxUpdateOrder valType="Double">1</maxUpdateOrder>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 67681, "Input": 67682, "Output": 1336}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 72110, "Input": 72111, "Output": 1336}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Parameters/DesignPoint:0" Version="1.0">
@@ -401,7 +404,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 67645, "Input": 56770, "Output": 1339}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 72074, "Input": 71598, "Output": 1339}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Schematic/System:SYS" Version="1.0">
@@ -501,7 +504,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 56761, "Input": 1622, "Output": 1622}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 71589, "Input": 1622, "Output": 1622}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
     </Container>

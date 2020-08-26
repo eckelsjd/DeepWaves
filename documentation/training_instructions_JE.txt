@@ -1,0 +1,32 @@
+Training instructions (8/3/2020)
+For use with unet_train_JE.ipynb
+Joshua Eckels
+
+Directory setup:
+
+images/
+labels/
+test/
+models/
+src/
+	unet_train_JE.ipynb
+	augment.py
+	codes.txt
+
+Steps:
+
+1. Load '_real' wavefield images from all desired rounds (rd2 and rd3) into the images/ directory.
+	- codes.txt has all desired classes listed in order line by line (i.e. 10,8,6,4,2)
+2. Load all corresponding '_real_mask' labels into labels/ directory.
+3. Load all desired test images into the test/ directory.
+4. Edit augment.py to include desired augmentation actions (currently just uses Gaussian noise and 180 rotation)
+5. Run 'python augment.py' from the top directory.
+	- this will perform each aug action on every image in the images/ directory.
+	- default: just Gaussian noise and rot180 performed, which increases the number of images in images/ directory.
+	- filenames indicate the type of augmentation performed. Labels only change if needed (such as a 180 rotation)
+6. Follow all instructions in consistent_colors.txt to sync the colors in all cnn predictions.
+7. Open unet_train.ipynb in a running Jupyter notebook kernel.
+8. Walk all the way through each cell until model has been trained through stage-2.
+	- stage-1 and stage-2 model .pth files saved in the models/ directory by fastai default
+	- choose learning rates from lr_find according to fastai custom
+	- The last cell will loop through all images in the test/ directory and plot their cnn predictions.

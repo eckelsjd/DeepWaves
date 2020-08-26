@@ -1,0 +1,58 @@
+Directory structure for DeepWaves project.
+Change top level folder to match your desired top directory.
+Update this top level folder in run_sims.py as SetUserPathRoot()
+Everything else is coded relative to this root folder.
+
+C:\Users\eckelsjd\Waves
+	\ansys
+		\DeepWaves_files
+			\dp0
+				\SYS
+					\MECH
+						imaginary.txt
+						real.txt
+					...
+				...
+			...
+		DeepWaves.wbpj
+	\data
+		rd1_square_or1_2_2_2_2_imaginary.txt
+		rd1_square_or1_2_2_2_2_real.txt
+		...
+	\images
+		rd1_square_or1_2_2_2_2_imaginary.png
+		rd1_square_or1_2_2_2_2_real.png
+		rd1_square_or1_2_2_2_2_magnitude.png
+		...
+	\labels
+		rd1_square_or1_2_2_2_2_mask.png
+		...
+	\logs
+		run_sims.log
+	\geometry
+		rd1_square_or1_2_2_2_2.step
+		rd1_square_or1_2_4_6_8.step
+		...
+	\models
+		stage-1.pth
+		stage-2.pth
+		export.pkl
+	\src
+		\CAD_scripts
+		unet_train_JE.ipynb
+		unet_train_0_004_KH.ipynb
+		unet_train_0_0009_KH.ipynb
+		filter_defect.m
+		plot_wavefield.m
+		process_images.m
+		display_dir.m
+		norm_batch.m
+		run_sims.py
+		run_matlab.py
+		augment.py
+		noise.py
+		ACT_mech_script.py
+		codes.txt
+	\test
+		test_image.png
+		...

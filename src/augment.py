@@ -1,4 +1,8 @@
-# Script to augment dataset by generating new images in same directory
+# Los Alamos Dynamics Summer School (LADSS)
+# Team: DeepWaves
+# Date: 8/17/2020
+# Author: Joshua Eckels (eckelsjd@rose-hulman.edu)
+# Description: Script to augment dataset by generating new images in same directory
 
 from skimage.util import random_noise # Gaussian noise function from skimage library (scikit-learn)
 from skimage import io

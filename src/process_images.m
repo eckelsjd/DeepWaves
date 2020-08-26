@@ -1,6 +1,12 @@
-% Run plot_wavefield.m script in parallel on all ANSYS data files
-% Can generate visual or default masks
-% Can generate batchnorm or single image norm wavefield images
+% Los Alamos Dynamics Summer School (LADSS)
+% DeepWaves 8/17/2020
+% Matlab function written by: Joshua Eckels (eckelsjd@rose-hulman.edu)
+%
+% Runs plot_wavefield.m script in parallel on all ANSYS data files.
+% Can generate grayscale,color, or default segmentation masks.
+% Can generate batchnorm or single image norm wavefield images.
+% Uses Matlab parallel computing toolbox. See "parfor" loop below.
+% SEE plot_wavefield.m documentation for more help
 clear all
 close all
 clc
@@ -24,7 +30,7 @@ for i = 1:length(files)
     end
 end
 
-% Obtain max and min displacement values to normalize data
+% Obtain max and min displacement values to batch normalize data
 % norm = norm_batch(real,imaginary);
 
 funs = {}; % store function handles
@@ -35,12 +41,14 @@ for i = 1:length(real)
     imag_filename = imaginary(i);
     
     % Setup a function to run later
-    fun = @()plot_wavefield(real_filename,imag_filename,'visual',[]);
+    fun = @()plot_wavefield(real_filename,imag_filename,'color',[]);
 %     fun = @()plot_wavefield(real_filename,imag_filename,'no_mask',norm);
     funs{end+1} = fun;
 end
 
 % Run all collected functions in parallel
+% Simply change "parfor" loop to "for" loop if you do not have Matlab
+% parallel computing toolbox installed
 parfor k = 1:length(funs)
     funs{k}();
 end

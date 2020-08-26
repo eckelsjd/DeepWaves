@@ -1,0 +1,66 @@
+# Python Script, API Version = V18
+thickness = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+x_loc=[50, 150];
+y_loc=[50, 150];
+
+for t in thickness:
+    for x in x_loc:
+        for y in y_loc:
+            # Delete Selection
+            selection = Body1
+            Delete.Execute(selection)
+            # EndBlock
+
+            # Set Sketch Plane
+            sectionPlane = Plane.PlaneXY
+            result = ViewHelper.SetSketchPlane(sectionPlane, Info1)
+             # EndBlock
+
+            # Sketch Rectangle
+            point1 = Point2D.Create(MM(-200),MM(200))
+            point2 = Point2D.Create(MM(200),MM(200))
+            point3 = Point2D.Create(MM(200),MM(-200))
+            result = SketchRectangle.Create(point1, point2, point3)
+            # EndBlock
+
+            # Solidify Sketch
+            mode = InteractionMode.Solid
+            result = ViewHelper.SetViewMode(mode, Info2)
+            # EndBlock
+
+            # Extrude 1 Face
+            selection = Face1
+            options = ExtrudeFaceOptions()
+            options.ExtrudeType = ExtrudeType.Add
+            result = ExtrudeFaces.Execute(selection, MM(t), options, Info3)
+            # EndBlock
+
+
+            # Set Sketch Plane
+            selection = Face2
+            result = ViewHelper.SetSketchPlane(selection, Info4)
+            # EndBlock
+
+            # Sketch Circle
+            origin = Point2D.Create(MM(x), MM(y))
+            result = SketchCircle.Create(origin, MM(20))
+            # EndBlock
+
+            # Solidify Sketch
+            mode = InteractionMode.Solid
+            result = ViewHelper.SetViewMode(mode, Info5)
+            # EndBlock
+
+            # Extrude 1 Face
+            selection = Face3
+            options = ExtrudeFaceOptions()
+            options.ExtrudeType = ExtrudeType.Add
+            result = ExtrudeFaces.Execute(selection, MM(1), options, Info6)
+            # EndBlock
+        
+             # Save File
+            DocumentSave.Execute(r"C:\Users\15056\Desktop\Simulation Plates\RD7 Plates\rd7_{}_{}_{}.step".format(t, x, y), FileSettings1)
+            # EndBlock
+            
+            
+            

@@ -1,0 +1,75 @@
+# Instructions on how to use each source file
+
+process_images.m
+	- Install Matlab parallel computing toolbox and statistics toolbox
+	- Choose 'mode' for plot_wavefield function
+	- Run from src directory
+	- Change 'parfor' loop to 'for' loop to use without parallel computing toolbox
+	- This creates all real,imaginary,magnitude, and mask images
+	- Depends on data,images,labels directories
+
+plot_wavefield.m
+	- Function ran from within process_images.m
+	- Choose the 'mode' argument to determine how the masks are produced
+	- See the source code for more description
+	- Calls filter_defect.m
+
+filter_defect.m
+	- Uses kmeans Matlab function to automatically get the defect points
+	- Helper function in generating segmentation masks
+	- Still in 'testing' for round 1 files (multiple defects present)
+	- Currently is set to only filter 1 defect cluster; not tested for more defects
+
+display_dir.m
+	- Helper function to quickly iterate through and check segmentation masks
+	- Run from src directory
+	- Hit any button to iterate through the images
+	- Images will be displayed in a Matlab figure
+
+run_sims.py
+	- Run this file as a script in Ansys 19.1 workbench
+	- Gathers all .step files from the 'geometry' directory
+	- Opens Mechanical and sends ACT_mech_script.py to be executed
+	- Saves all result files in 'data' directory
+	- Performs simulation on all of the .step files gathered
+	- Runtime = 10 hours for 224 sims
+	- Exported data contains node x,y,z info and z-displacement in a .txt file for real and imaginary displacement
+
+run_matlab.py
+	- Uses Matlab engine for Python to call plot_wavefield.m from run_sims.py
+	- Automatically generates wavefield images and masks
+	- Can also automatically move files to Dropbox account using Dropbox API
+
+ACT_mech_script.py
+	- ACT script run in Ansys Mechanical to set parameters and run simulation on plate geometry .step files
+
+augment.py
+	- Perform data augmentation to increase dataset size
+
+norm_batch.m
+	- helper function to calculate max and min values from a batch of images
+	- to do batch normalization on a set of training images
+
+noise.py
+	- Generate several images with varying gaussian noise levels. (for a future noise study)
+
+interpret.py
+	- Customized fastai source code file for creating consistent colors in cnn prediction output images.
+	- Follow the instructions in consistent_colors.txt to use this file.
+
+CAD_scripts
+	- This folder contains ANSYS ACT python scripts that can be run directly in the ACT console in SpaceClaim
+	  to parametrically model and save many .step geometry files automatically
+	- Use these scripts to aid in creating your own ACT modeling script (they won't work directly)
+	- Also look into journal recording in SpaceClaim for help in finding useful Python commands
+
+unet_train_0_004_KH.ipynb
+	- Kelly Ho's training script with 0.004 Gaussian noise
+
+unet_train_0_0009_KH.ipynb
+	- Kelly Ho's training script with 0.0009 Gaussian noise
+
+unet_train_JE.ipynb
+	- Jupyter notebook to interactively train CNN model using fastai library
+	- Joshua Eckels' training script
+

@@ -1,3 +1,11 @@
+# Los Alamos Dynamics Summer School (LADSS)
+# Team: DeepWaves
+# Date: 8/17/2020
+# Author: Joshua Eckels, Kelly Ho, Isabel Fernandez
+# Description:
+# Python script to run in Ansys 19.1 Mechanical
+# Builds and runs simulation for plate geometry in DeepWaves project
+
 # Get access to the geometry
 model = ExtAPI.DataModel.Project.Model
 part = model.Geometry.Children[0]

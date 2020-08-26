@@ -8,6 +8,9 @@ data/*.txt
 # geometry .step files
 geometry/*.step
 
+# Matlab .mat files
+mat/*.mat
+
 # Jupyter notebook checkpoints
 src/.ipynb_checkpoints
 

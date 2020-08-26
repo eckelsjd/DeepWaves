@@ -1,0 +1,33 @@
+Consistent colormap workaround:
+8/9/20
+
+1. Locate the installation path of your fastai library:
+	- In a python code cell: 
+		import fastai
+		fastai.__file__
+	- Navigate to the printed directory
+	- Probably: /usr/local/lib/python3.6/dist-packages/fastai
+	- Then go to /usr/local/etc../fastai/vision
+
+2. Replace the 'interpret.py' file with the copy in src/
+	- Feel free to look at the new file
+	- The only change is to the _interp_show method (adds the 'norm' kwarg)
+	  and passes 'norm' to axes.imshow()
+
+3. Add the following lines while creating SegmentationInterpretation object:
+	interp = SegmentationInterpretation.from_learner(learn)
+	classes = [x for x in learn.data.classes]
+
+	# Linear color scale to display thicknesses 1-10mm
+	color_list = [(127,0,0),(255,0,0),(255,127,0),(255,255,0),(191,255,62),(62,255,191),(0,255,255),(0,127,255),(0,0,255),(0,0,127)]
+
+	# Use this workaround to ensure a constant colormap
+	# SEE: https://riptutorial.com/matplotlib/example/20692/custom-discrete-colormap
+	cmap = matplotlib.colors.ListedColormap(color_list)
+	boundaries = [0,1,2,3,4,5,6,7,8,9,10]
+	norm = matplotlib.colors.BoundaryNorm(boundaries,cmap.N,clip=True)
+
+4. Later on, after calling learn.predict, call _interp_show as:
+	pred = learn.predict(test_img)
+	interp._interp_show(pred[0],classes,cmap=cmap,norm=norm)
+	

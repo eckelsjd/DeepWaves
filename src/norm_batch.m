@@ -1,3 +1,9 @@
+% Los Alamos Dynamics Summer School (LADSS)
+% DeepWaves 8/17/2020
+% Matlab function written by: Joshua Eckels (eckelsjd@rose-hulman.edu)
+% Helper function to compute absolute maximum and minimum pixel values on
+% all real and imaginary data .txt files to do batch image normalization
+% over the entire dataset. Used by plot_wavefield.m as input (if desired)
 function norm = norm_batch(re_files,im_files)
 
     plate_thickness=0.01;

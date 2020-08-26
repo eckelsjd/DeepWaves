@@ -1,3 +1,12 @@
+# Los Alamos Dynamics Summer School (LADSS)
+# Team: DeepWaves
+# Date: 8/17/2020
+# Author: Joshua Eckels (eckelsjd@rose-hulman.edu)
+# Description:
+# Python script to call a Matlab function and then move all result files
+# to dropbox teams folder (to save hard drive space)
+# Comment out dropbox calls to ignore this
+
 import matlab.engine
 import sys
 import os
@@ -6,8 +15,8 @@ from dropbox.files import WriteMode
 from dropbox.exceptions import ApiError, AuthError
 from pathlib import Path
 
-# Private token to access Dropbox account
-TOKEN = "NsFb38WhQPAAAAAAAAAAAdzWg90pnvqvmdzMelpeKReaHQNpETSPiWozcXEkgNIH"
+# Private token to access Dropbox account (see Dropbox API help)
+TOKEN = ""
 
 # Function to call Matlab plot_wavefield
 def exec_matlab(real_filename,imag_filename,mode,norm):

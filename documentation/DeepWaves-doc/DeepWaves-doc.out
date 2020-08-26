@@ -1,0 +1,20 @@
+\BOOKMARK [1][-]{section.1}{Project information}{}% 1
+\BOOKMARK [1][-]{section.2}{Project overview}{}% 2
+\BOOKMARK [1][-]{section.3}{Detailed project workflow}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Software and installation details}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Directory structure}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Input}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Dataset generation}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.4.1}{CAD parametric modeling}{subsection.3.4}% 8
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Setting up the ANSYS FEA solver}{subsection.3.4}% 9
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Automating ANSYS simulations}{subsection.3.4}% 10
+\BOOKMARK [2][-]{subsection.3.5}{Image processing}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.6}{Data augmentation}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.7}{CNN training}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.8}{Output}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Future work}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Addressing current limitations}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Comprehensive dataset}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.3}{Regression}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.4}{CNN model refinement}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.5}{CNN training refinement}{section.4}% 20

@@ -1,3 +1,13 @@
+# Los Alamos Dynamics Summer School (LADSS)
+# Team: DeepWaves
+# Date: 8/17/2020
+# Author: Joshua Eckels, Kelly Ho, Isabel Fernandez
+# Description:
+# Python script to load all geometry files and run through Ansys simulation script.
+# Run this script from top-level Ansys workbench->scripting.
+# Only tested on Ansys 19.1
+# Calls subprocess to run Matlab script and upload results to dropbox
+
 import os
 import shutil
 # import subprocess
@@ -77,8 +87,8 @@ for geom in stepFiles:
 	shutil.move(outputReal,realPath)
 	
 	# Plot wavefield with Matlab and upload to dropbox
-	cmd = "python %s %s %s %s" % (matlab_script,realFilename,imagFilename,"no_mask")
-	os.system(cmd)
+	# cmd = "python %s %s %s %s" % (matlab_script,realFilename,imagFilename,"no_mask")
+	# os.system(cmd)
 	# process = subprocess.run(['python',matlab_script,realFilename,imagFilename,"visual"],stdout=subprocess.PIPE,universal_newlines = True)
 
 # Cleanup
