@@ -1,6 +1,7 @@
-# ignore images
-*.png
-*.jpg
+# ignore images and labels
+images/*.png
+test/*.png
+labels/*.png
 
 # data .txt files
 data/*.txt
