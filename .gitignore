@@ -21,3 +21,7 @@ src/.ipynb_checkpoints
 
 # ansys files
 ansys/DeepWaves_files
+ansys/.DeepWaves_files.backup
+
+# log files
+logs/*.log

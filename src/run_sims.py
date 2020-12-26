@@ -24,7 +24,7 @@ import shutil
 # TODO: Create setup script to make project from scratch
 
 # Set this to the base path of the project
-SetUserPathRoot(DirectoryPath="C:\Users\eckelsjd\DeepWaves")
+SetUserPathRoot(DirectoryPath="C:\Users\eckelsjd\git_projects\DeepWaves")
 os.chdir(AbsUserPathName("src"))
 
 # Filepath for matlab+dropbox script
