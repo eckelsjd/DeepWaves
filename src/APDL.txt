@@ -1,0 +1,49 @@
+!   Commands inserted into this file will be executed immediately after the ANSYS /POST1 command.
+
+!   Active UNIT system in Workbench when this object was created:  Metric (m, kg, N, s, V, A)
+!   NOTE:  Any data that requires units (such as mass) is assumed to be in the consistent solver unit system.
+!                See Solving Units in the help system for more information.
+
+/post1
+set,,,1,0
+*get,NNUMMAX,node,,num,max	! maximum number of nodes in the simulation
+nsel,none			! make sure all nodes are unselected
+nsel,ext			! select all external nodes
+NSEL,U,LOC,X,0,0		! unselect all X=0 nodes (not sure why nsel,ext fails here)
+
+! cmsel,none			! component (cm) select - use with named selections in Mechanical GUI
+! cmsel,a,<name-sel>		! <name-sel> is the GUI name for the selected component
+
+*get,SELMAX,node,,num,max	! maximum number of selected nodes
+
+*del,NMASK			! Delete NMASK array if it exits
+*del,NARRAY			! Delete NARRAY array if ti exits
+
+*dim,NMASK,array,NNUMMAX		! Define NMASK array
+*dim,NARRAY,array,SELMAX,6		! Define NARRAY array to hold results
+
+*vget,NMASK(1),node,all,nsel,1	! Get status of selected nodes
+					! 1 = selected, 0 = undefined, -1 = unselected
+
+*vmask,NMASK(1)		! Use NMASK as masking array
+				! If NMASK(i) > 0.0, perform operation "i"
+				! If NMASK(i) < 0.0, do not perform on "i" 
+
+*vget,NARRAY(1,1),node,all,loc,x		! Get LX for nodes & Fill first column
+*vget,NARRAY(1,2),node,all,loc,y		! Get LY for nodes & Fill seound column
+*vget,NARRAY(1,3),node,all,loc,z		! Get LZ for nodes & Fill third column
+*vget,NARRAY(1,4),node,all,u,z		! Get UZ for nodes & Fill fourth column (disp-imaginary)
+set,,,1,1					! switch to imaginary
+*vget,NARRAY(1,5),node,all,u,z		! Get UZ for nodes (disp-real)
+*vfil,NARRAY(1,6),ramp,all,1		! Fill vector from 1 to NNUMMAX (node no.)
+
+*cfopen,disp,txt		! Create text file (Path is same with rst file)
+*vwrite			! Write headers (‘x’ tells how many spaces to put between headers)
+('Node_no.',2x,'x-loc',2x,'y-loc',2x,'z-loc',2x,'z-disp-re',2x,'z-disp-im')
+			
+*vwrite,NARRAY(1,6),NARRAY(1,1),NARRAY(1,2),NARRAY(1,3),NARRAY(1,4),NARRAY(1,5)	! Write the info from your array to the text file
+(F10.0,2x,E15.8,2x,E15.8,2x,E15.8,2x,E13.5,2x,E13.5)					! Format the output
+finish
+*cfclose,disp,txt		! Close the opened file
+
+PARSAV,SCALAR,param,txt	! write parameters to param.txt

@@ -25,3 +25,6 @@ ansys/.DeepWaves_files.backup
 
 # log files
 logs/*.log
+
+# gif files
+gifs/*.gif
