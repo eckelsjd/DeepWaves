@@ -34,7 +34,7 @@ matlab_script = AbsUserPathName("src/run_matlab.py")
 projPath = AbsUserPathName("ansys/DeepWaves.wbpj")
 Open(FilePath=projPath)
 ClearMessages()
-logfile = open(AbsUserPathName("logs/run_sims.log"),"w")
+logfile = open(AbsUserPathName("output/logs/run_sims.log"),"w")
 logfile.write("Processing project in " + projPath + "\n")
 
 # Get harmonic system object
@@ -75,20 +75,24 @@ for geom in stepFiles:
 	
 	# Retrieve and rename output .txt files
 	outputPath = AbsUserPathName("ansys/DeepWaves_files/dp0/SYS/MECH/")
-	outputImag = AbsUserPathName(outputPath + "imaginary.txt")
-	outputReal = AbsUserPathName(outputPath + "real.txt")
+	# outputImag = AbsUserPathName(outputPath + "imaginary.txt")
+	# outputReal = AbsUserPathName(outputPath + "real.txt")
+	outputDisp = AbsUserPathName(outputPath + "disp.txt")
 	
-	imagFilename = os.path.splitext(geom)[0] + "_imaginary.txt"
-	imagPath = AbsUserPathName("data/" + imagFilename)
-	realFilename = os.path.splitext(geom)[0] + "_real.txt"
-	realPath = AbsUserPathName("data/" + realFilename)
+	# imagFilename = os.path.splitext(geom)[0] + "_imaginary.txt"
+	# imagPath = AbsUserPathName("data/" + imagFilename)
+	# realFilename = os.path.splitext(geom)[0] + "_real.txt"
+	# realPath = AbsUserPathName("data/" + realFilename)
+	dispFilename = os.path.splitext(geom)[0] + "_disp.txt"
+	dispPath = AbsUserPathName("data/" + dispFilename)
 	
-	shutil.move(outputImag,imagPath)
-	shutil.move(outputReal,realPath)
+	# shutil.move(outputImag,imagPath)
+	# shutil.move(outputReal,realPath)
+	shutil.move(outputDisp,dispPath)
 	
 	# Plot wavefield with Matlab and upload to dropbox
-	# cmd = "python %s %s %s %s" % (matlab_script,realFilename,imagFilename,"no_mask")
-	# os.system(cmd)
+	cmd = "python %s %s" % (matlab_script,dispFilename)
+	os.system(cmd)
 	# process = subprocess.run(['python',matlab_script,realFilename,imagFilename,"visual"],stdout=subprocess.PIPE,universal_newlines = True)
 
 # Cleanup

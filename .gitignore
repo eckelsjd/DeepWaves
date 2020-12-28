@@ -9,13 +9,10 @@ data/*.txt
 # geometry .step files
 geometry/*.step
 
-# Matlab .mat files
-mat/*.mat
-
 # Jupyter notebook checkpoints
 src/.ipynb_checkpoints
 
-# export file
+# CNN export files
 *.pkl
 *.pth
 
@@ -23,8 +20,9 @@ src/.ipynb_checkpoints
 ansys/DeepWaves_files
 ansys/.DeepWaves_files.backup
 
-# log files
-logs/*.log
-
-# gif files
-gifs/*.gif
+# general output files
+output/figs/*.fig
+output/gis/*.gif
+output/ground_truth/*.tif
+output/logs/*.log
+output/mat/*.mat

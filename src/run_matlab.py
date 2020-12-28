@@ -18,11 +18,11 @@ from pathlib import Path
 # Private token to access Dropbox account (see Dropbox API help)
 TOKEN = ""
 
-# Function to call Matlab plot_wavefield
-def exec_matlab(real_filename,imag_filename,mode,norm):
+# Function to call Matlab plot_wavefield.m
+def exec_matlab(filename):
 	print("Starting MATLAB for you :)")
 	eng = matlab.engine.start_matlab()
-	eng.plot_wavefield(real_filename,imag_filename,mode,norm,nargout=0)
+	t_out = eng.plot_wavefield(filename,nargout=1)
 	print("plot_wavefield completed. Your images are saved to hard drive.")
 	print("Closing MATLAB...")
 
@@ -63,50 +63,51 @@ def upload(src,dest):
 if __name__ == '__main__':
 	print("run_matlab.py activated! Welcome.\n")
 	# Read command-line arguments
-	real_filename = sys.argv[1]
-	imag_filename = sys.argv[2]
-	mode = sys.argv[3]
+	# real_filename = sys.argv[1]
+	# imag_filename = sys.argv[2]
+	# mode = sys.argv[3]
+	disp_filename = sys.argv[1]
 	
 	# Generate wavefield images from .txt data
-	exec_matlab(real_filename,imag_filename,mode,[])
+	exec_matlab(disp_filename)
 	
 	# Setup src and dest for dropbox file transfer
-	tokens = real_filename.split('_')
-	round = tokens[0]
+	# tokens = real_filename.split('_')
+	# round = tokens[0]
 	
 	# src directories
-	base_src = Path(os.getcwd())/'..'
-	src_data = base_src/'data'
-	src_images = base_src/'images'
-	src_labels = base_src/'labels'
+	# base_src = Path(os.getcwd())/'..'
+	# src_data = base_src/'data'
+	# src_images = base_src/'images'
+	# src_labels = base_src/'labels'
 	
 	# dest directories (dropbox relative)
-	base_dest = Path('/datastore')/round
-	dest_data = base_dest/(round+'_data')
-	dest_images = base_dest/(round+'_images')
-	dest_labels = base_dest/(round+'_labels')
+	# base_dest = Path('/datastore')/round
+	# dest_data = base_dest/(round+'_data')
+	# dest_images = base_dest/(round+'_images')
+	# dest_labels = base_dest/(round+'_labels')
 	
 	# Image filenames
-	real_image = os.path.splitext(real_filename)[0] + '.png'
-	imag_image = os.path.splitext(imag_filename)[0] + '.png'
-	mask_image = real_filename.split('_real.txt')[0] + '_mask.png'
-	mag_image = real_filename.split('_real.txt')[0] + '_magnitude.png'
+	# real_image = os.path.splitext(real_filename)[0] + '.png'
+	# imag_image = os.path.splitext(imag_filename)[0] + '.png'
+	# mask_image = real_filename.split('_real.txt')[0] + '_mask.png'
+	# mag_image = real_filename.split('_real.txt')[0] + '_magnitude.png'
 	
 	# Upload files to dropbox
-	print("Moving your files to Dropbox: \n")
-	upload(str(src_data/real_filename),(dest_data/real_filename).as_posix()) # Real data.txt
-	upload(str(src_data/imag_filename),(dest_data/imag_filename).as_posix()) # Imaginary data.txt
-	upload(str(src_images/real_image), (dest_images/real_image).as_posix())  # Real image.png
-	upload(str(src_images/imag_image), (dest_images/imag_image).as_posix())  # Imaginary image.png
-	upload(str(src_images/mag_image),(dest_images/mag_image).as_posix())     # Magnitude image.png
+	# print("Moving your files to Dropbox: \n")
+	# upload(str(src_data/real_filename),(dest_data/real_filename).as_posix()) # Real data.txt
+	# upload(str(src_data/imag_filename),(dest_data/imag_filename).as_posix()) # Imaginary data.txt
+	# upload(str(src_images/real_image), (dest_images/real_image).as_posix())  # Real image.png
+	# upload(str(src_images/imag_image), (dest_images/imag_image).as_posix())  # Imaginary image.png
+	# upload(str(src_images/mag_image),(dest_images/mag_image).as_posix())     # Magnitude image.png
 	# upload(str(src_labels/mask_image), (dest_labels/mask_image).as_posix())  # Mask image.png
 	
 	# Remove files from hard drive
-	print("Clearing your hard drive...don't worry. Dropbox has your files now.")
-	os.remove(src_data/real_filename)
-	os.remove(src_data/imag_filename)
-	os.remove(src_images/real_image)
-	os.remove(src_images/imag_image)
-	os.remove(src_images/mag_image)
+	# print("Clearing your hard drive...don't worry. Dropbox has your files now.")
+	# os.remove(src_data/real_filename)
+	# os.remove(src_data/imag_filename)
+	# os.remove(src_images/real_image)
+	# os.remove(src_images/imag_image)
+	# os.remove(src_images/mag_image)
 	# os.remove(src_labels/mask_image)
 	print("All done!")

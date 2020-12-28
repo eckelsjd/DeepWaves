@@ -2,10 +2,10 @@
 <Storage>
   <Project Version="9.0">
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">73687</timestamp-max>
+    <timestamp-max valType="Int64">76011</timestamp-max>
     <framework-build-version valType="String">19.1.103.0</framework-build-version>
     <external-version-string valType="String">Release 19.1</external-version-string>
-    <last-saved-utc valType="String">12/27/2020 04:03:42</last-saved-utc>
+    <last-saved-utc valType="String">12/28/2020 05:21:00</last-saved-utc>
     <managed-categories valType="String">[report, misc, progress]</managed-categories>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents4608.log</ArrayEntry>
@@ -32,6 +32,7 @@
       <ArrayEntry Index="21">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents18532.log</ArrayEntry>
       <ArrayEntry Index="22">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents12812.log</ArrayEntry>
       <ArrayEntry Index="23">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents16904.log</ArrayEntry>
+      <ArrayEntry Index="24">eckelsjd@ECKELSJD-5520:C:\Users\eckelsjd\AppData\Local\Temp\WorkbenchLogs\CoreEvents9560.log</ArrayEntry>
     </logHistory>
     <expression-scope-container valType="String">Parameters</expression-scope-container>
     <project-type valType="String">WB2</project-type>
@@ -67,7 +68,7 @@
 "f9203ff6-0294-4ac0-b1e6-a0d2aa57036e": "/Schematic/ComponentTemplate:SimulationSolutionCellTemplate_StructuralHarmonicANSYS",
 "3d20de7e-f8a2-4620-9695-d956688eb304": "/Schematic/ComponentTemplate:SimulationResultsCellTemplate_StructuralHarmonicANSYS",
 "a36ac451-d952-48ff-8d88-61b6ea71d446": "/FileContainer/FileReference:F8",
-"d7bf3897-7e90-4536-8b62-a34f55ffdeef": "/FileContainer/FileReference:F9"
+"2520dd8e-1783-41b7-9172-2844cfe0d2d5": "/FileContainer/FileReference:F9"
 }</ReferenceList>
       </ProjectReferenceList>
       <DesignPointReferenceListCollection>
@@ -334,13 +335,13 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 73611, "Input": 1332, "Output": 1332}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 75964, "Input": 1332, "Output": 1332}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/FileContainer/FileReference:F9" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F9</object-name>
-        <member-data valType="String">{"DisplayText": "rd1_circle_or1_2_4_6_8.step", "FileType": $$9f670f46-ab25-4812-9501-077de93b6c5a, "DependentFiles": [], "ContainerAssociations": ["Geometry"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"C:\Users\eckelsjd\git_projects\DeepWaves\geometry\rd1_circle_or1_2_4_6_8.step", "ReferenceCount": 1}</member-data>
+        <member-data valType="String">{"DisplayText": "test_edge_5.STEP", "FileType": $$9f670f46-ab25-4812-9501-077de93b6c5a, "DependentFiles": [], "ContainerAssociations": ["Geometry"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"C:\Users\eckelsjd\git_projects\DeepWaves\geometry\test_edge_5.STEP", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F2" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -376,11 +377,6 @@
       <last-modified-by-usage valType="String">{"Extrinsic": 73652, "Input": 1333, "Output": 1333}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
-      <Object Name="/Messages/StoredMessage:Message" Version="1.0">
-        <class-type valType="String">StoredMessage</class-type>
-        <object-name valType="String">Message</object-name>
-        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Error", "MessageCategory": "None", "Summary": "Update failed for the Model component in Harmonic Response.  Error updating cell Model in system Harmonic Response. View the messages in the Mechanical editor for more details.", "Details": None, "Association": "", "DateTimeStamp": 12/26/2020 20:46:53, "Visibility": "Error", "MessageSourceContainer": None, "MessageSourceEntity": $$3bd3e816-8cf8-48ed-8666-fe9cb8d948ae, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
-      </Object>
     </Container>
     <Container Name="Parameters" Version="1.0">
       <container-type valType="String">Ansys.ParameterManager.ParameterManagerAddin:parameters</container-type>
@@ -389,7 +385,7 @@
       <maxUpdateOrder valType="Double">1</maxUpdateOrder>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 73686, "Input": 73687, "Output": 1336}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 76010, "Input": 76011, "Output": 1336}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Parameters/DesignPoint:0" Version="1.0">
@@ -411,7 +407,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 73666, "Input": 72779, "Output": 1339}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 75975, "Input": 75968, "Output": 1339}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Schematic/System:SYS" Version="1.0">
@@ -511,7 +507,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 73482, "Input": 1622, "Output": 1622}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 75959, "Input": 1622, "Output": 1622}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
     </Container>
