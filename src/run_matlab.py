@@ -70,6 +70,12 @@ if __name__ == '__main__':
 	
 	# Generate wavefield images from .txt data
 	exec_matlab(disp_filename)
+
+	# Run CNN inference
+
+	# Run MATLAB metrics
+
+	# Display/save MATLAB metrics
 	
 	# Setup src and dest for dropbox file transfer
 	# tokens = real_filename.split('_')

@@ -273,8 +273,14 @@ class_seg = thick_max - local_thick;
 class_seg = round(1000*class_seg); % integers for classification
 
 % CLASS VALUE LABEL FOR CNN
-mask_name = ['../labels/' char(base_file) '_mask.png'];
-imwrite(uint8(class_seg),mask_name); % convert to 8-bit (0-255)
+if contains(base_file,"test_")
+    mask_name = ['../test/targets/' char(base_file) '_targ.png'];
+    imwrite(uint8(class_seg),mask_name); % convert to 8-bit (0-255)
+else
+    mask_name = ['../labels/' char(base_file) '_mask.png'];
+    imwrite(uint8(class_seg),mask_name); % convert to 8-bit (0-255)
+end
+
 
 % RGB GROUND TRUTH FOR VISUAL COMPARISON
 local_thick = round(1000*local_thick);
@@ -298,9 +304,9 @@ set(get(cb,'label'),'interpreter','latex');
 set(get(cb,'label'),'FontSize',11);
 set(f_seg,'Visible','on');
 set(f_seg,'ToolBar','none'); % annoying pop-up toolbar
-exportgraphics(gca,['../output/ground_truth/',char(base_file),'_truth.tif'],'Resolution',300);
+exportgraphics(gca,['../output/ground_truth/',char(base_file),'_targ_rgb.tif'],'Resolution',300);
 set(f_seg,'ToolBar','figure');
-saveas(gcf,['../output/figs/',char(base_file),'_truth']);
+saveas(gcf,['../output/figs/',char(base_file),'_targ_rgb']);
 set(f_seg,'Visible','off');
 
 

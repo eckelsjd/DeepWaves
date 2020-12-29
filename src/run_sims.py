@@ -95,6 +95,8 @@ for geom in stepFiles:
 	os.system(cmd)
 	# process = subprocess.run(['python',matlab_script,realFilename,imagFilename,"visual"],stdout=subprocess.PIPE,universal_newlines = True)
 
+	# 
+
 # Cleanup
 mech.Exit()
 logfile.write("\n")
