@@ -1,6 +1,6 @@
 # ignore images and labels
 images/*.png
-test/*.png
+test/*/*.png
 labels/*.png
 
 # data .txt files
@@ -15,6 +15,7 @@ src/.ipynb_checkpoints
 # CNN export files
 *.pkl
 *.pth
+*.onnx
 
 # ansys files
 ansys/DeepWaves_files
@@ -24,5 +25,7 @@ ansys/.DeepWaves_files.backup
 output/figs/*.fig
 output/gis/*.gif
 output/ground_truth/*.tif
+output/predictions/*.tif
 output/logs/*.log
 output/mat/*.mat
+
