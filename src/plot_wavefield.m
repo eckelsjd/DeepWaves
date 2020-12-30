@@ -57,35 +57,20 @@ arguments
     options.ClassFile (1,:) string = "codes.txt"
 end
 tic
-%% DEFINE COLORS (classification only)
+%% DEFINE
 fd = fopen(options.ClassFile,'r');
 codes = fscanf(fd,"%f\n");
 fclose(fd);
-thick_min = min(codes)*10^(-3); % min plate thickness [mm]
 thick_max = max(codes)*10^(-3); % max plate thickness [mm]
-num_classes = length(codes);
-
-c_map = [128 0 0; % manually make c_map here
-          230 25 75;
-          245 130 48;
-          255 255 25;
-          210 245 60;
-          115, 250, 80
-          170 255 195;
-          70 240 240;
-          0 130 200;
-          0 0 128] / 255;
-          
-% c_map = flip(linspecer(num_classes,'sequential'),1); % generate N linear colors
-
-%% DATA IMPORT
-filename = convertCharsToStrings(filename); 
-base_file = extractBetween(filename,"","_disp.txt");
 resolution = 0.001;     % 1 [mm] grid resolution
 tol = 1e-6;             % tolerance for comparing floats
 f = 80000;              % 80,000 Hz
 % z_tune = 20000;       % help separate z-values for kmeans clustering (testing)
 % no_defects = 4;       % hard-coded??? or in filename
+
+%% DATA IMPORT
+filename = convertCharsToStrings(filename); 
+base_file = extractBetween(filename,"","_disp.txt");
 
 % Files imported from ANSYS
 data = readtable(['../data/' char(filename)]);
@@ -281,35 +266,7 @@ else
     imwrite(uint8(class_seg),mask_name); % convert to 8-bit (0-255)
 end
 
-
-% RGB GROUND TRUTH FOR VISUAL COMPARISON
-local_thick = round(1000*local_thick);
-label = [0, flip(codes)']; % colorbar labels (classes)
-min_class_val = min(codes);
-max_class_val = max(codes);
-f_seg = figure('Visible','off');
-imshow(uint8(local_thick),'DisplayRange',[min_class_val max_class_val],'Colormap',c_map);
-cb = colorbar();
-caxis([min_class_val max_class_val+1]);
-inc = abs(codes(1)-codes(2));
-cb.YTick = (min_class_val - inc/2) : inc : max_class_val+1; % put ticks in middle of boxes
-labelChar = strsplit(sprintf('%d ',label));
-cb.TickLabels = labelChar(1:end-1);
-cb.TickLabelInterpreter = 'latex';
-cb.LineWidth = 0.8;
-cb.FontSize = 11;
-cb.TickLength = 0;
-set(get(cb,'label'),'string','Plate thickness ($mm$)')
-set(get(cb,'label'),'interpreter','latex');
-set(get(cb,'label'),'FontSize',11);
-set(f_seg,'Visible','on');
-set(f_seg,'ToolBar','none'); % annoying pop-up toolbar
-exportgraphics(gca,['../output/ground_truth/',char(base_file),'_targ_rgb.tif'],'Resolution',300);
-set(f_seg,'ToolBar','figure');
-saveas(gcf,['../output/figs/',char(base_file),'_targ_rgb']);
-set(f_seg,'Visible','off');
-
-
+% RGB ground truth (THIS IS NOW IN METRICS.M)
 %%% THIS IDEA IS DUMB (to convert to RGB image)
 % % Classification: find and replace each class with desired RGB
 % % Regression: Create a linear color map from min to max thickness value
@@ -361,12 +318,16 @@ img_re = mat2gray(vq_re);
 img_im = mat2gray(vq_im);
 
 % Save grayscale wavefield images
-% Real
-img_re = flip(img_re,1);
-imwrite(img_re,['../images/' char(base_file) '_real.png']);
-% Imaginary
-img_im = flip(img_im,1);
-imwrite(img_im,['../images/' char(base_file) '_imaginary.png']);
+img_re = flip(img_re,1); % real
+img_im = flip(img_im,1); % imaginary
+if contains(base_file,"test_")
+    imwrite(img_re,['../images/' char(base_file) '_real.png']);
+    imwrite(img_im,['../images/' char(base_file) '_imaginary.png']);
+else
+    % only test on real dataset (that's how the CNN was trained)
+    imwrite(img_re,['../test/testset' char(base_file) '_real.png']);
+    % imwrite(img_im,['../test/testset' char(base_file) '_imaginary.png']);
+end
 
 % MAKE COOL WAVEFIELD GIF
 if options.MakeGif
