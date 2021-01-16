@@ -14,12 +14,6 @@ plot_wavefield.m
 	- See the source code for more description
 	- Calls filter_defect.m
 
-filter_defect.m
-	- Uses kmeans Matlab function to automatically get the defect points
-	- Helper function in generating segmentation masks
-	- Still in 'testing' for round 1 files (multiple defects present)
-	- Currently is set to only filter 1 defect cluster; not tested for more defects
-
 display_dir.m
 	- Helper function to quickly iterate through and check segmentation masks
 	- Run from src directory
@@ -46,10 +40,6 @@ ACT_mech_script.py
 augment.py
 	- Perform data augmentation to increase dataset size
 
-norm_batch.m
-	- helper function to calculate max and min values from a batch of images
-	- to do batch normalization on a set of training images
-
 noise.py
 	- Generate several images with varying gaussian noise levels. (for a future noise study)
 
@@ -72,4 +62,23 @@ unet_train_0_0009_KH.ipynb
 unet_train_JE.ipynb
 	- Jupyter notebook to interactively train CNN model using fastai library
 	- Joshua Eckels' training script
+
+codes.txt and c_map.mat
+	- stores class and color data used by source files
+
+get_metrics.m
+	- Calculates IoU metrics in Matlab and plots tables
+
+make_figures.m
+	- Generates colored pred and target images in matlab
+
+unet_test.py and .ipynb
+	- Python to run CNN inference on testset
+
+test_iou.m
+	- Test the accuracy of built-in matlab iou function
+
+linspecer.m
+	- Helper function from Matlab fileshare to generate
+	  visually distinct colormaps for n classes
 

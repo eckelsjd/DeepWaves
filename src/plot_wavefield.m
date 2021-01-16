@@ -321,12 +321,12 @@ img_im = mat2gray(vq_im);
 img_re = flip(img_re,1); % real
 img_im = flip(img_im,1); % imaginary
 if contains(base_file,"test_")
+    % only test on real dataset (that's how the CNN was trained)
+    imwrite(img_re,['../test/testset/' char(base_file) '_real.png']);
+    imwrite(img_im,['../test/testset/' char(base_file) '_imaginary.png']);
+else
     imwrite(img_re,['../images/' char(base_file) '_real.png']);
     imwrite(img_im,['../images/' char(base_file) '_imaginary.png']);
-else
-    % only test on real dataset (that's how the CNN was trained)
-    imwrite(img_re,['../test/testset' char(base_file) '_real.png']);
-    % imwrite(img_im,['../test/testset' char(base_file) '_imaginary.png']);
 end
 
 % MAKE COOL WAVEFIELD GIF

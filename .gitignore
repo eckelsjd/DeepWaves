@@ -13,9 +13,9 @@ geometry/*.step
 src/.ipynb_checkpoints
 
 # CNN export files
-*.pkl
-*.pth
-*.onnx
+models/*.pkl
+models/*.pth
+models/*.onnx
 
 # ansys files
 ansys/DeepWaves_files
@@ -23,9 +23,10 @@ ansys/.DeepWaves_files.backup
 
 # general output files
 output/figs/*.fig
-output/gis/*.gif
-output/ground_truth/*.tif
-output/predictions/*.tif
+output/gifs/*.gif
+output/*/*.tif
+output/*/*.tiff
+output/*/*.png
 output/logs/*.log
 output/mat/*.mat
 
