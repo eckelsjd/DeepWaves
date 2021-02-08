@@ -319,11 +319,14 @@ img_im = mat2gray(vq_im);
 
 % Save grayscale wavefield images
 img_re = flip(img_re,1); % real
-img_im = flip(img_im,1); % imaginary
+% img_im = flip(img_im,1); % imaginary
 if contains(base_file,"test_")
     % only test on real dataset (that's how the CNN was trained)
     imwrite(img_re,['../test/testset/' char(base_file) '_real.png']);
-    imwrite(img_im,['../test/testset/' char(base_file) '_imaginary.png']);
+    f = imshow(img_re);
+    exportgraphics(gca,['../output/testset/',char(base_file),'_real.tif'],'Resolution',300)
+    saveas(gcf,['../output/figs/',char(base_file),'_real']);
+    set(f,'Visible','off');
 else
     imwrite(img_re,['../images/' char(base_file) '_real.png']);
     imwrite(img_im,['../images/' char(base_file) '_imaginary.png']);

@@ -14,14 +14,11 @@ clc
 % Get list of all data files
 datapath = '../data/';
 files = dir(datapath);
-real = [];
-imaginary = [];
+disp = [];
 for i = 1:length(files)
     if ~files(i).isdir
-        if contains(files(i).name,'real','IgnoreCase',true)
-            real = [real,string(files(i).name)];
-        elseif contains(files(i).name,'imaginary','IgnoreCase',true)
-            imaginary = [imaginary,string(files(i).name)];
+        if contains(files(i).name,'disp','IgnoreCase',true)
+            disp = [disp,string(files(i).name)];
         else
             str = sprintf('Incorrect file format: %s',files(i).name);
             fprintf("%s\n",str);
@@ -30,19 +27,14 @@ for i = 1:length(files)
     end
 end
 
-% Obtain max and min displacement values to batch normalize data
-% norm = norm_batch(real,imaginary);
-
 funs = {}; % store function handles
 
 % Get real,imaginary data filenames (they are at same index)
-for i = 1:length(real)
-    real_filename = real(i);
-    imag_filename = imaginary(i);
+for i = 1:length(disp)
+    disp_filename = disp(i);
     
     % Setup a function to run later
-    fun = @()plot_wavefield(real_filename,imag_filename,'color',[]);
-%     fun = @()plot_wavefield(real_filename,imag_filename,'no_mask',norm);
+    fun = @()plot_wavefield(disp_filename);
     funs{end+1} = fun;
 end
 

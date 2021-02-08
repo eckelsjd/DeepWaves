@@ -10,6 +10,7 @@
 
 import os
 import shutil
+import time
 # import subprocess
 
 # SIM setup_script beforehand:
@@ -20,11 +21,11 @@ import shutil
 	# Use 4 physical cores (virtual cores not recommended)
 	# Tools->Solve Process Settings->Advanced->number of cores
 	# Use NVIDIA GPU speedup if you have a recommended GPU
-	
+
 # TODO: Create setup script to make project from scratch
 
 # Set this to the base path of the project
-SetUserPathRoot(DirectoryPath="C:\Users\eckelsjd\git_projects\DeepWaves")
+SetUserPathRoot(DirectoryPath="C:\Users\eckel\Dropbox\Deep Waves\DeepWaves")
 os.chdir(AbsUserPathName("src"))
 
 # Filepath for matlab+dropbox script
@@ -55,7 +56,7 @@ try:
 	geometry = harmonicSys.GetContainer(ComponentName="Geometry")
 except:
 	logfile.write("No geometry to replace in system " + system.DisplayText + "\n")
-	
+
 # Gather list of .step files from geometry folder
 stepFiles = os.listdir(AbsUserPathName("geometry"))
 logfile.write("Gathering step files:\n")
@@ -65,37 +66,41 @@ for geom in stepFiles:
 		continue
 	newGeom = AbsUserPathName("geometry/" + geom)
 	logfile.write("Opening " + newGeom + "\n")
-	
+
 	# Open new geometry
 	geometry.SetFile(FilePath=newGeom)
-	
+
 	# Refresh and run ACT script in Mechanical
 	modelComponent.Refresh()
 	mech.SendCommand(Command=act_command,Language="Python")
-	
+	logfile.write("Already back from Mechanical\n")
+
 	# Retrieve and rename output .txt files
 	outputPath = AbsUserPathName("ansys/DeepWaves_files/dp0/SYS/MECH/")
 	# outputImag = AbsUserPathName(outputPath + "imaginary.txt")
 	# outputReal = AbsUserPathName(outputPath + "real.txt")
 	outputDisp = AbsUserPathName(outputPath + "disp.txt")
-	
+
 	# imagFilename = os.path.splitext(geom)[0] + "_imaginary.txt"
 	# imagPath = AbsUserPathName("data/" + imagFilename)
 	# realFilename = os.path.splitext(geom)[0] + "_real.txt"
 	# realPath = AbsUserPathName("data/" + realFilename)
 	dispFilename = os.path.splitext(geom)[0] + "_disp.txt"
 	dispPath = AbsUserPathName("data/" + dispFilename)
-	
+
 	# shutil.move(outputImag,imagPath)
 	# shutil.move(outputReal,realPath)
-	shutil.move(outputDisp,dispPath)
-	
-	# Plot wavefield with Matlab and upload to dropbox
-	cmd = "python %s %s" % (matlab_script,dispFilename)
-	os.system(cmd)
-	# process = subprocess.run(['python',matlab_script,realFilename,imagFilename,"visual"],stdout=subprocess.PIPE,universal_newlines = True)
 
-	# 
+	# Wait until disp file is available
+	# while not os.path.exists(dispPath):
+	# 	time.sleep(3)
+
+	shutil.move(outputDisp,dispPath)
+
+	# Plot wavefield with Matlab and upload to dropbox
+	# cmd = "python %s %s" % (matlab_script,dispFilename)
+	# os.system(cmd)
+	# process = subprocess.run(['python',matlab_script,realFilename,imagFilename,"visual"],stdout=subprocess.PIPE,universal_newlines = True)
 
 # Cleanup
 mech.Exit()

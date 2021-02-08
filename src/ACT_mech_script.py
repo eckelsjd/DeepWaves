@@ -27,7 +27,7 @@ for i in range(0,len(faces)):
 	if centroid[2] > zmax:
 		zmax = centroid[2]
 		transducer = face
-		
+
 # Select the transducer face
 selection = ExtAPI.SelectionManager.CreateSelectionInfo(SelectionTypeEnum.GeometryEntities)
 selection.Entities = [transducer]
@@ -50,7 +50,8 @@ analysisSettings.RangeMaximum = Quantity("80000 [Hz]")
 analysisSettings.SolutionMethod = HarmonicMethod.Full
 analysisSettings.SolutionIntervals = 1
 analysisSettings.ConstantDampingRatio = 0.001
-analysisSettings.StructuralDampingCoefficient = Quantity("0.001 [rad/s]")
+# analysisSettings.StructuralDampingCoefficient = Quantity("0.001 [rad/s]")
+analysisSettings.StructuralDampingCoefficient = 0.001
 
 # Run the simulation
 model.Solve(True)
